@@ -1,0 +1,42 @@
+<html ng-app="app10">
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="js/dir.js"></script>
+    <style media="screen">
+      .thick{
+        font-weight:bold;
+      }
+    </style>
+    </head>
+  <body>
+    <div ng-controller="mainCtrl">
+
+      <ul jql-directive>
+        <li id="abc">ABC</li>
+        <ul>
+          <li>AVG : .145</li>
+          <li>HR : 457</li>
+          <li>OBP : .456</li>
+        </ul>
+        <li id="hank">Hank Aaron</li>
+        <ul>
+          <li>AVG : .789</li>
+          <li>HR : 987</li>
+          <li>OBP : .147</li>
+        </ul>
+        <li>XYZ</li>
+        <ul>
+          <li>AVG : .369</li>
+          <li>HR : 369</li>
+          <li>OBP : .963</li>
+        </ul>
+      </ul>
+
+      <h4>Children in List</h4>
+      <span id="childrenList"></span><br><br>
+        ABC's Number :<span id="abc1"></span> <br><br>
+        Is Hank Bold : <span id="hankbold"></span><br><br>
+        ABC's ID : <span id="abcid"></span><br><br>
+        <button ng-click="unBold()">Toggle Bold</button>
+    </div>
+  </body>

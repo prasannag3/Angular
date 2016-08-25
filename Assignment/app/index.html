@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" ng-app="CrimeApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Crime Data View in Angular</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.module.js"></script>
+    <script src="core/core.module.js"></script>
+    <script src="core/Filterfiles/startfrom.filter.js"></script>
+
+    <script src="crime/crime-list.module.js"></script>
+    <script src="crime/crime-list.component.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <!-- Use a custom component to render a list of phones -->
+    <!-- <div ng-controller="controller">
+  <div crime-list></div> -->
+  <crime-list></crime-list>
+<!-- </div> -->
+  </body>
+</html>

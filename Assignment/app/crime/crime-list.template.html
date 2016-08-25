@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="row">
+<center>
+    <div class="col-md-12">
+      <!--Body content-->
+<h1>Crime Data Analysis</h1>
+<br>
+<select ng-model="sorting">
+  <option>Year</option>
+  <option>Below500</option>
+  <option>Above500</option>
+</select>
+
+<input type="text" ng-model="val"/>
+<button value="filter">Filter</button>
+
+<br><br>
+      <table class="crimes">
+        <th>
+          <a href="#" ng-click="sortType = 'year'; sortReverse = !sortReverse">Year
+           <span ng-show="sortType == 'year' && !sortReverse" class="fa fa-caret-down"></span>
+           <span ng-show="sortType == 'year' && sortReverse" class="fa fa-caret-up"></span>
+         </a>
+
+        </th>
+        <th>
+
+          <a href="#" ng-click="sortType = 'Below500'; sortReverse = !sortReverse">Below500
+           <span ng-show="sortType == 'Below500' && !sortReverse" class="fa fa-caret-down"></span>
+           <span ng-show="sortType == 'Below500' && sortReverse" class="fa fa-caret-up"></span>
+         </a>
+
+        </th>
+        <th>
+
+          <a href="#" ng-click="sortType = 'Above500'; sortReverse = !sortReverse">Above500
+           <span ng-show="sortType == 'Above500' && !sortReverse" class="fa fa-caret-down"></span>
+           <span ng-show="sortType == 'Above500' && sortReverse" class="fa fa-caret-up"></span>
+         </a>
+
+        </th>
+        <tr ng-repeat="crime in $ctrl.crimes | startfrom:(($ctrl.currentPage)*($ctrl.pageSize))| limitTo:$ctrl.pageSize | orderBy:sortType:sortReverse">
+          <td>{{crime.year}}</td>
+          <td>{{crime.Below500}}</td>
+          <td>{{crime.Above500}}</td>
+            <td><button ng-click="$ctrl.removeItem(crime)">Remove</button></td>
+
+        </table>
+        <br><br>
+      <button ng-disabled="$ctrl.currentPage == 0" ng-click="$ctrl.currentPage=$ctrl.currentPage-1">
+             Prev<<
+       </button>
+      <button ng-repeat="i in [1,2,3,4,5,6,7,8]  | limitTo:$ctrl.pageCount" ng-click="$ctrl.currentPage=i-1">{{i}}</button>
+      <button ng-disabled="$ctrl.currentPage>=$ctrl.crimes.length/$ctrl.pageSize-1" ng-click="$ctrl.currentPage=$ctrl.currentPage+1">
+             Next>>
+      </button>
+
+      <form name="form" style="margin-top:40px">
+Year: <br>
+<input type="number" ng-model="yr" name="yr" min="1947" max="2016" required>
+<span ng-if="form.yr.$error.min">Value should be greater than 1947</span>
+<span ng-if="form.yr.$error.max">Value should be less than 2016</span><br>
+Above500:<br>
+<input type="number" ng-model="ab" name="ab" min="0" max="100000" ng-pattern="/^[0-9]+(\.[0-9]{0})?$/" required>
+<span ng-if="form.ab.$error.min">Value should be greater than 0</span>
+<span ng-if="form.ab.$error.max">Value should be less than 100000</span><br>
+Below500:<br>
+<input type="number" ng-model="un" name="un" min="0" max="100000" ng-pattern="/^[0-9]+(\.[0-9]{0})?$/" required>
+<span ng-if="form.un.$error.min">Value should be greater than 0</span>
+<span ng-if="form.un.$error.max">Value should be less than 100000</span><br>
+
+<input type="button" value="Add Rows" ng-disabled="form.$invalid" ng-click="$ctrl.add(yr,ab,un);"/>
+</form>
+
+  </div>
+  </center>
+
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<html ng-app="app7">
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="js/hero.js"></script>
+    </head>
+    <body>
+    <div ng-controller="heroCtrl">
+      <label>Hero to search for : </label>
+      <input type="text" ng-model="heroName"/>
+      <br><br>
+      <button ng-click="getHeroData()">submit</button>
+      <br><br>
+      {{heroData}}
+      <br>
+    </div>
+
+<div ng-controller="heroCtrl">
+  <label>Hero Name :</label>
+  <input type="text" ng-model="heroName"/> <br>
+  <label>Real Name : </label>
+  <input type="text" ng-model="realName"/> <br>
+  <button ng-click= "addHeroData(realName,heroName)">Add</button>
+</div>
+</body>
+</html>

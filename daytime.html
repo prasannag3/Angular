@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="app5">
+  <head>
+    <meta charset="utf-8">
+    <style>
+    .bluetext{
+    color:blue;
+    }
+    .boldtext{
+    font-weight:bold;
+    }
+    .stripedblue{
+    color:#007FFF;
+    background-color:#DBE9F4;
+    }
+    .stripebeige{
+    color:#CC0000;
+    background-color:#F5F5DC;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+      <script src="js/daytime.js"></script>
+  </head>
+  <body>
+<div ng-controller="eventCtrl">
+
+    <p>
+      <input type="checkbox" ng-model="dayTimeButton"/>Morning
+    </p>
+    <p ng-hide="!dayTimeButton">Good Morning </p>
+    <p ng-hide="dayTimeButton">Good Evening </p>
+
+    <p>
+      <select ng-model="textStyling">
+        <option value="bluetext"> Blue Text </option>
+        <option value="boldtext"> Bold Text </option>
+      </select>
+    </p>
+
+    <p ng-class="textStyling">some textarea</p>
+
+    <table>
+        <tr ng-repeat = "item in capitals"
+        ng-class-even="'stripedblue'"
+        ng-class-odd="'stripebeige'">
+        <td>{{item.city}}</td>
+        <td>{{item.state}}</td>
+
+        </tr>
+    </table>
+
+  </div>
+  </body>
+</html>
